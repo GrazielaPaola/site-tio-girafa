@@ -1,0 +1,437 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.625rem;
+  --background: #FFF8DC;
+  --foreground: #8B4513;
+  --card: #FFFFFF;
+  --card-foreground: #8B4513;
+  --popover: #FFFFFF;
+  --popover-foreground: #8B4513;
+  --primary: #FF8C00;
+  --primary-foreground: #FFFFFF;
+  --secondary: #32CD32;
+  --secondary-foreground: #FFFFFF;
+  --muted: #F5F5DC;
+  --muted-foreground: #A0522D;
+  --accent: #FFD700;
+  --accent-foreground: #8B4513;
+  --destructive: #DC2626;
+  --border: #DEB887;
+  --input: #F5F5DC;
+  --ring: #FF8C00;
+  --chart-1: #FF8C00;
+  --chart-2: #32CD32;
+  --chart-3: #8B4513;
+  --chart-4: #FFD700;
+  --chart-5: #228B22;
+  --sidebar: #FFF8DC;
+  --sidebar-foreground: #8B4513;
+  --sidebar-primary: #FF8C00;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #F5F5DC;
+  --sidebar-accent-foreground: #8B4513;
+  --sidebar-border: #DEB887;
+  --sidebar-ring: #FF8C00;
+}
+
+.dark {
+  --background: #2D1810;
+  --foreground: #FFF8DC;
+  --card: #3D2818;
+  --card-foreground: #FFF8DC;
+  --popover: #3D2818;
+  --popover-foreground: #FFF8DC;
+  --primary: #FF8C00;
+  --primary-foreground: #FFFFFF;
+  --secondary: #32CD32;
+  --secondary-foreground: #FFFFFF;
+  --muted: #4D3820;
+  --muted-foreground: #DEB887;
+  --accent: #FFD700;
+  --accent-foreground: #2D1810;
+  --destructive: #DC2626;
+  --border: #5D4828;
+  --input: #4D3820;
+  --ring: #FF8C00;
+  --chart-1: #FF8C00;
+  --chart-2: #32CD32;
+  --chart-3: #8B4513;
+  --chart-4: #FFD700;
+  --chart-5: #228B22;
+  --sidebar: #2D1810;
+  --sidebar-foreground: #FFF8DC;
+  --sidebar-primary: #FF8C00;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #4D3820;
+  --sidebar-accent-foreground: #FFF8DC;
+  --sidebar-border: #5D4828;
+  --sidebar-ring: #FF8C00;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Cores temáticas da girafa */
+.giraffe-orange {
+  background: linear-gradient(135deg, #FF8C00 0%, #FFA500 100%);
+}
+
+.giraffe-green {
+  background: linear-gradient(135deg, #32CD32 0%, #228B22 100%);
+}
+
+.giraffe-brown {
+  color: #8B4513;
+}
+
+.giraffe-yellow {
+  background: linear-gradient(135deg, #FFD700 0%, #FFF8DC 100%);
+}
+
+/* Animações personalizadas */
+@keyframes bounce-gentle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes wiggle {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-3deg);
+  }
+  75% {
+    transform: rotate(3deg);
+  }
+}
+
+.animate-bounce-gentle {
+  animation: bounce-gentle 2s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-wiggle {
+  animation: wiggle 1s ease-in-out infinite;
+}
+
+/* Efeitos de hover */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(255, 140, 0, 0.3);
+}
+
+/* Gradientes tropicais */
+.tropical-gradient {
+  background: linear-gradient(135deg, #32CD32 0%, #FFD700 50%, #FF8C00 100%);
+}
+
+.sunset-gradient {
+  background: linear-gradient(135deg, #FF8C00 0%, #FFA500 50%, #FFD700 100%);
+}
+
+/* Animações de folhas flutuantes */
+@keyframes leaf-float-1 {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-15px) rotate(5deg);
+  }
+  50% {
+    transform: translateY(-30px) rotate(-5deg);
+  }
+  75% {
+    transform: translateY(-15px) rotate(3deg);
+  }
+}
+
+@keyframes leaf-float-2 {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-20px) rotate(-8deg);
+  }
+  66% {
+    transform: translateY(-10px) rotate(8deg);
+  }
+}
+
+@keyframes leaf-float-3 {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-25px) rotate(10deg);
+  }
+}
+
+.animate-leaf-1 {
+  animation: leaf-float-1 4s ease-in-out infinite;
+}
+
+.animate-leaf-2 {
+  animation: leaf-float-2 5s ease-in-out infinite;
+}
+
+.animate-leaf-3 {
+  animation: leaf-float-3 3s ease-in-out infinite;
+}
+
+/* Efeito de brilho nos cards */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.shimmer-effect {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Efeito de pulsação para elementos importantes */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(255, 140, 0, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(255, 140, 0, 0.8), 0 0 30px rgba(255, 140, 0, 0.6);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Efeito de zoom suave nos cards */
+.zoom-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.zoom-hover:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+/* Gradiente animado para o fundo */
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animated-gradient {
+  background: linear-gradient(-45deg, #FF8C00, #FFA500, #FFD700, #32CD32);
+  background-size: 400% 400%;
+  animation: gradient-shift 8s ease infinite;
+}
+
+/* Efeito de ondas para seções */
+.wave-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.wave-effect::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 140, 0, 0.1) 0%, transparent 70%);
+  animation: wave-rotate 10s linear infinite;
+}
+
+@keyframes wave-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Efeito de partículas flutuantes */
+.floating-particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  background: rgba(255, 140, 0, 0.6);
+  border-radius: 50%;
+  animation: float-up 6s linear infinite;
+}
+
+@keyframes float-up {
+  0% {
+    transform: translateY(100vh) scale(0);
+    opacity: 1;
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(90vh) scale(1);
+  }
+  90% {
+    opacity: 1;
+    transform: translateY(10vh) scale(1);
+  }
+  100% {
+    transform: translateY(-10vh) scale(0);
+    opacity: 0;
+  }
+}
+
+/* Efeito de texto brilhante */
+.text-glow {
+  text-shadow: 0 0 10px rgba(255, 140, 0, 0.5),
+               0 0 20px rgba(255, 140, 0, 0.3),
+               0 0 30px rgba(255, 140, 0, 0.2);
+}
+
+/* Animação de entrada suave */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s ease-out;
+}
+@keyframes giraffe-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-giraffe-float {
+  animation: giraffe-float 3s ease-in-out infinite;
+}
+
+@keyframes giraffe-head-wiggle {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(5deg);
+  }
+}
+
+.animate-giraffe-head-wiggle {
+  animation: giraffe-head-wiggle 2s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+
+
+@keyframes gentle-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-gentle-spin {
+  animation: gentle-spin 20s linear infinite;
+}
+
